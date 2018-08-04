@@ -60,7 +60,6 @@ body {
 
 /* h1::before,
 */
-
 h1::after {
     display: inline-block;
     content: "";
@@ -165,6 +164,11 @@ img {
     min-height: 50vh;
     width: 100%;
 }
+.container-1 {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
 
 .white {
     color: #fff;
@@ -223,21 +227,75 @@ img {
     margin-top: 20px;
 }
 
-/* .bar-1 {
-    width: 80%;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    height: 30px;
-    color: #fff;
-    background-color: #00b1db;
-    border-radius: 20px;
+@media screen and (max-width: 970px) {
+    .note {
+      width: 100px;
+      left: 500px;
+      text-align: left;
+    }
+    .container {
+        max-width: 500px;
+    }
 }
- */
 
-/* @media(max-width: 620px) {
-   .services {
-     min-width: 25vw;
-   }
-
+@media screen and (max-width: 800px) {
+    .note {
+      width: 70px;
+      left: 370px;
+      text-align: left;
+    }
+    .container {
+        max-width: 400px;
+    }
 }
-*/
+
+@media screen and (max-width: 650px) {
+    .aside-left {
+      width: 100%;
+    }
+   .row-1 {
+      display: flex;
+      flex-flow: row;
+      justify-content: flex-start;
+    }
+    .logo, .logo-1 {
+      margin: 5px 10px;
+    }
+    .vertical-line-top, .vertical-line-bottom {
+      display: none;
+    }
+    .container {
+       width: 90%;
+    }
+    .row {
+      flex-flow: column nowrap;
+      justify-content: center;
+    }
+    .section1 {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        text-align: justify;
+    }
+    .aside-right {
+        margin: 15px auto;
+        max-width: 80%;
+        left: 0px;
+        top: 0px;
+    }
+    .note {
+        left: 0;
+        top: 200px;
+        width: auto;
+    }
+    .container {
+        max-width: 400px;
+    }
+    .m-l {
+      text-align: center;
+
+    }
+    .calendar, .validation, .section {
+      margin: 10px auto;
+    }
+}
