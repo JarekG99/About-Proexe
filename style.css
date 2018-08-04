@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    counter-reset: note;
+}
+
+.hidden {
+    display: none;
+}
+
+.special {
+    margin-bottom: 2em;
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    text-align: justify;
+}
+
+.aside-left {
+    min-width: 2.5em;
+}
+
+.vertical-line-top {
+    margin-left: 4px;
+    margin-bottom: 20px;
+    border-left: 1px solid grey;
+    height: 40px;
+}
+
+.vertical-line-bottom {
+    margin-left: 5px;
+    margin-top: 20px;
+    border-left: 1px solid grey;
+    height: 80px;
+}
+
+.logo-1 {
+    width: 12px;
+    margin: 8px 0;
+}
+
+.logo {
+    width: 9px;
+    margin: 8px 0;
+}
+
+
+/* h1::before,
+*/
+
+h1::after {
+    display: inline-block;
+    content: "";
+    border-top: .2rem solid #00b1db;
+    height: 6rem;
+    width: 3em;
+    transform: translateY(90%);
+    margin-left: .9em;
+    margin-right: .9em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h2::after {
+    display: inline-block;
+    content: "";
+    border-top: .2rem solid #fff;
+    height: 6rem;
+    width: 3em;
+    transform: translateY(90%);
+    margin-left: .9em;
+    margin-right: .9em;
+}
+
+hr {
+    display: block;
+    width: 30%;
+    border: 0;
+    border-top: 3px solid #00b1db;
+    margin: 1em 0;
+    padding: 0;
+}
+
+hr-1 {
+    display: block;
+    width: 100%;
+    border: 0;
+    border-top: 3px solid #00b1db;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.note-container {
+    position: relative;
+    font-size: .9em;
+    font-weight: bold;
+    margin-top: 2em;
+}
+
+.note::before {
+    counter-increment: note;
+    content: counter(note) ".";
+}
+
+.note {
+    position: absolute;
+    top: 0;
+    left: 580px;
+    width: 150px;
+    height: 100%;
+    padding-left: 7px;
+    font-size: 0.9em;
+}
+
+.section {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    text-align: justify;
+}
+
+.section1 {
+    display: flex;
+    flex-flow: row-reverse nowrap;
+    justify-content: flex-end;
+    align-content: stretch;
+    text-align: justify;
+}
+
+.aside-right {
+    position: relative;
+    min-width: 8em;
+    left: 50px;
+    top: 100px;
+}
+
+img {
+    display: block;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.booking {
+    background: url("images/booking_bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 4em;
+    min-height: 50vh;
+    width: 100%;
+}
+
+.white {
+    color: #fff;
+    margin-left: 2.5em;
+    margin-bottom: 2.5em;
+}
+
+.calendar .ui-corner-all {
+    border: none;
+}
+
+.ui-widget-content,
+.ui-widget-content .ui-state-default,
+.ui-widget-header,
+.ui-state-default,
+.ui-datepicker,
+.ui-state-hover,
+.ui-datepicker-calendar tr td {
+    background: transparent;
+    border: none;
+    color: white;
+}
+
+.calendar {
+    background-color: rgb(128, 128, 128, 0.5);
+    width: 280px;
+    height: 280px;
+    border-radius: 7px;
+    margin-right: 10px;
+}
+
+.validation {
+    width: 280px;
+    height: 280px;
+    background-color: white;
+    margin-left: 10px;
+    border-radius: 7px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.bar {
+    width: 80%;
+    font-size: 1em;
+    height: 30px;
+    border-radius: 5px;
+}
+.bg-1 {
+    background-color: #cee8ef;
+}
+.bg-2 {
+    background-color: #00b1db;
+    color: #fff;
+    margin-top: 20px;
+}
+
+/* .bar-1 {
+    width: 80%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 30px;
+    color: #fff;
+    background-color: #00b1db;
+    border-radius: 20px;
+}
+ */
+
+/* @media(max-width: 620px) {
+   .services {
+     min-width: 25vw;
+   }
+
+}
+*/
