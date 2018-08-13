@@ -4,12 +4,12 @@
     box-sizing: border-box;
 }
 
-body {
+/* body {
     counter-reset: note;
 }
-
+ */
 .hidden {
-    display: none;
+    visibility: hidden;
 }
 
 .special {
@@ -35,16 +35,16 @@ body {
 
 .vertical-line-top {
     margin-left: 4px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border-left: 1px solid grey;
-    height: 40px;
+    height: 20px;
 }
 
 .vertical-line-bottom {
     margin-left: 5px;
-    margin-top: 20px;
+    margin-top: 10px;
     border-left: 1px solid grey;
-    height: 80px;
+    height: 40px;
 }
 
 .logo-1 {
@@ -54,12 +54,9 @@ body {
 
 .logo {
     width: 9px;
-    margin: 8px 0;
+    margin: 5px 0;
 }
 
-
-/* h1::before,
-*/
 h1::after {
     display: inline-block;
     content: "";
@@ -72,7 +69,7 @@ h1::after {
 }
 
 h2 {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 h2::after {
@@ -91,7 +88,7 @@ hr {
     width: 30%;
     border: 0;
     border-top: 3px solid #00b1db;
-    margin: 1em 0;
+    margin: 0.8em 0;
     padding: 0;
 }
 
@@ -106,12 +103,16 @@ hr-1 {
 
 .note-container {
     position: relative;
-    font-size: .9em;
+    font-size: .7em;
     font-weight: bold;
-    margin-top: 2em;
+    margin: 2em auto;
 }
 
-.note::before {
+ .no-margin {
+  margin: 0;
+}
+ /* Próba wyciagania .note za pomoca css */
+ /*.note::before {
     counter-increment: note;
     content: counter(note) ".";
 }
@@ -125,7 +126,7 @@ hr-1 {
     padding-left: 7px;
     font-size: 0.9em;
 }
-
+ */
 .section {
     display: flex;
     flex-flow: column;
@@ -143,24 +144,39 @@ hr-1 {
 
 .aside-right {
     position: relative;
-    min-width: 8em;
-    left: 50px;
-    top: 100px;
+    min-width: 7em;
+    left: 25px;
+    top: 15px;
 }
 
 img {
     display: block;
-    margin-top: 1em;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     width: 100%;
 }
 
+.arrow {
+  width: 3em;
+  height: 3em;
+  margin-right: 2em;
+}
+
+ .new-notes {
+/*   margin-left: 20px;*/
+/* margin-top: 30px;
+  */ /*   display:block; */
+  position: relative;
+  bottom: 230px;
+  left: 580px;
+  width: 130px;
+/*   height: 100%; */
+/*   padding-left: 7px; */
+  font-size: 0.7em;
+}
 .booking {
     background: url("images/booking_bg.png");
     background-size: cover;
     background-repeat: no-repeat;
-    margin-top: 4em;
     min-height: 50vh;
     width: 100%;
 }
@@ -180,6 +196,12 @@ img {
     border: none;
 }
 
+.calendar {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+
 .ui-widget-content,
 .ui-widget-content .ui-state-default,
 .ui-widget-header,
@@ -190,6 +212,8 @@ img {
     background: transparent;
     border: none;
     color: white;
+    text-align: center;
+    margin: 5px auto;
 }
 
 .calendar {
@@ -197,7 +221,46 @@ img {
     width: 280px;
     height: 280px;
     border-radius: 7px;
-    margin-right: 10px;
+}
+
+.ui-datepicker-current-day {
+  position: relative;
+  z-index: 2;
+}
+
+.ui-datepicker-current-day:after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background: #00b1db;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.blocked {
+  color: grey;
+  position: relative;
+}
+
+ .blocked:after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    top: 15%;
+    left: 80%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background: blue;
+    border-radius: 50%;
+    z-index: -1;
 }
 
 .validation {
@@ -228,10 +291,10 @@ img {
 }
 
 @media screen and (max-width: 970px) {
-    .note {
-      width: 100px;
-      left: 500px;
-      text-align: left;
+    .new-notes {
+     width: 100px;
+     left: 480px;
+     bottom: 275px;
     }
     .container {
         max-width: 500px;
@@ -239,10 +302,12 @@ img {
 }
 
 @media screen and (max-width: 800px) {
-    .note {
-      width: 70px;
+    .new-notes {
+/*       width: 70px;
+       */
       left: 370px;
-      text-align: left;
+      bottom: 315px;
+    /*   text-align: left; */
     }
     .container {
         max-width: 400px;
@@ -271,23 +336,40 @@ img {
       flex-flow: column nowrap;
       justify-content: center;
     }
+
     .section1 {
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: center;
-        text-align: justify;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      text-align: justify;
     }
     .aside-right {
-        margin: 15px auto;
-        max-width: 80%;
-        left: 0px;
-        top: 0px;
+      margin: 15px auto;
+      max-width: 80%;
+      left: 0px;
+      top: 0px;
     }
-    .note {
-        left: 0;
-        top: 200px;
-        width: auto;
+    .new-notes {
+      left: 0;
+      top: 0;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: flex-start;
+      text-align: left;
+       width: 100%;
     }
+
+    .arrow {
+      width: 12px;
+      height: 12px;;
+      margin: 8px;
+      transform: rotate(90deg);
+    }
+
+    .hidden {
+      visibility: visible;
+    }
+
     .container {
         max-width: 400px;
     }
