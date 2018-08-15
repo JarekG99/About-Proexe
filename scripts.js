@@ -10,17 +10,27 @@ $notes.append($("<li></li>").text(text));
 });
 })
 
+var blockedDays = [12, 15, 20, 26, 27];
 
 $(function() {
     $("#datepicker").datepicker({
         minDate: new Date(),
-        
+
         onSelect: function() {
             dateObject= $(this).datepicker('getDate', 'minDate');
             date = dateObject.getFullYear() + "/" + (dateObject.getMonth() + 1) + "/" + dateObject.getDate()
             let day = dateObject.getDate();
         },
 
+        beforeShowDay: function (date) {
+          if (blockedDays.find(function (day) {
+            return day == date.getDate()
+          }))
+           {
+            return [false, "blocked ui-state-disabled"];
+            }
+            return [true];
+        },
     });
 
 
@@ -40,44 +50,30 @@ $city.on('change', function() {
         $hotel.append($("<option></option>").text(hotel));
     })
 }).trigger('change');
-});
+ });
 
-var blockedDays = [12, 15, 20, 26, 27];
 
-// $().ready(function() {
-//   $.each(blockedDays, function() {
-//     $day = $().datepicker('getDate');
-//     console.log($day)
-//       if($(this) === $day) {
-//         $day.addClass("blocked ui-state-disabled")
-//     };
-//   });
-// })
-
-  let email = $("#email").val();
 
   function validateEmail(email) {
-    // var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-    let filter = /[^@]+@[^@]+/
+    var email = $("#email").val();
+     var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+     if ($.trim(email).length == 0) {
+           alert('Please enter valid email address');
+      } else
+
     if (filter.test(email)) {
       return true;
     }
     else {
-        return alert("Pls enter the valid e-mail");
+        return alert("Please check the e-mail");
     }
   }
+$().ready(function() {
+ $('#email').blur(function() {
 
-  $('#email').blur(function() {
-       if ($.trim(email).length == 0) {
-           alert('Please enter valid email address');
-           e.preventDefault();
-       }
-       if (validateEmail(email)) {
-           alert('Email is valid');
-           e.preventDefault();
-       }
-   });
-
+   validateEmail()
+})
+})
 
 
 function printValues() {
@@ -88,8 +84,7 @@ function printValues() {
   console.log(values);
   console.log(JSON.stringify(values));
 };
-$("#email").on()
+
 $(document).on("click", "#button", function() {
-    validateEmail();
     printValues();
 });
